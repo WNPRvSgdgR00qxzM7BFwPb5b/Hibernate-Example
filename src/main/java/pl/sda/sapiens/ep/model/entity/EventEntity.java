@@ -21,6 +21,7 @@ public class EventEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false, unique = true) // todo: obsłużyć unique w kodzie
     private String title;
     @Column(nullable = false)
     private String description;
@@ -30,9 +31,7 @@ public class EventEntity {
     private LocalDateTime end;
 
     @ManyToMany
-    @JoinTable(name = "tags_events",
-            joinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"))
+    @JoinTable(name = "tags_events")
     private Set<TagEntity> tags;
 
 }

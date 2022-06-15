@@ -12,7 +12,6 @@ import javax.persistence.TypedQuery;
 @Repository
 class HibernateTagRepository implements TagRepository {
 
-
     private final EntityManager entityManager;
     private final EntityTransaction transaction;
 
@@ -36,9 +35,7 @@ class HibernateTagRepository implements TagRepository {
             return newTag;
 
         } finally {
-            transaction.commit();
+            transaction.commit(); // todo: do przemyślenia, czy chcemy to robić zawsze
         }
-
-
     }
 }
