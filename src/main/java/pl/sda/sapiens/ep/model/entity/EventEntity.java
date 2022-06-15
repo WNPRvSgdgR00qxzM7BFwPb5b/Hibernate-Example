@@ -1,11 +1,10 @@
 package pl.sda.sapiens.ep.model.entity;
 
 import lombok.*;
-import pl.sda.sapiens.ep.model.domain.User;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -34,6 +33,6 @@ public class EventEntity {
     @JoinTable(name = "tags_events",
             joinColumns = @JoinColumn(name = "event_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"))
-    private List<TagEntity> tags;
+    private Set<TagEntity> tags;
 
 }

@@ -1,7 +1,7 @@
 package pl.sda.sapiens.ep.repository;
 
-import pl.sda.sapiens.ep.model.entity.EventEntity;
+import pl.sda.sapiens.ep.model.entity.TagEntity;
 
 public interface TagRepository {
-    boolean saveIfNotPresent(String tag, EventEntity event);
+    TagEntity saveIfNotPresent(String tag);
 }
