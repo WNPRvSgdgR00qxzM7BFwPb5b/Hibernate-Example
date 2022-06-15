@@ -5,13 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.sda.sapiens.ep.model.entity.EventEntity;
 import pl.sda.sapiens.ep.model.view.EventForm;
 import pl.sda.sapiens.ep.service.EventService;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -24,25 +21,26 @@ public class EventController {
     }
 
     @GetMapping("/event/form")
-    public String showEventForm(){
+    public String showEventForm() {
         return "event-form";
     }
 
     @PostMapping("/event/add")
-    public String addEvent(@ModelAttribute EventForm eventForm, Model model){
+    public String addEvent(@ModelAttribute EventForm eventForm, Model model) {
         //TODO wykonać walidację po stronie serwera eventForm
         eventService.saveEvent(eventForm);
-        model.addAttribute("events",eventService.findCurrentEvents());
+        model.addAttribute("events", eventService.findCurrentEvents());
         return "event-list";
     }
+
     @GetMapping("/event/list")
-    public String currentEventList(Model model){
-        model.addAttribute("events",eventService.findCurrentEvents());
+    public String currentEventList(Model model) {
+        model.addAttribute("events", eventService.findCurrentEvents());
         return "event-list";
     }
 
     @GetMapping("/addEvent")
-    public String addtestEvent(){
+    public String addtestEvent() {
         EventForm form = new EventForm();
         form.setTitle("test");
         form.setDescription("test2");

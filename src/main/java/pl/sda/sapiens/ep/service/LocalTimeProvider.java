@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 
 @Service
-public class LocalTimeProvider implements TimeProvider{
+public class LocalTimeProvider implements TimeProvider {
 
     @Override
     public LocalDateTime getCurrentDateTime() {

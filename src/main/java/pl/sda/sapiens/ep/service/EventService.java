@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface EventService {
     void saveEvent(EventForm eventForm);
+
     List<EventEntity> findCurrentEvents();
 }

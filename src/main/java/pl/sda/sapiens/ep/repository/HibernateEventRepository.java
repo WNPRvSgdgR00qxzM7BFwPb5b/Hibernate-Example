@@ -1,13 +1,11 @@
 package pl.sda.sapiens.ep.repository;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 import pl.sda.sapiens.ep.model.entity.EventEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -15,7 +13,7 @@ class HibernateEventRepository implements EventRepository {
 
 
     private final EntityManager entityManager;
-    private EntityTransaction transaction;
+    private final EntityTransaction transaction;
 
     HibernateEventRepository(SessionFactory sessionFactory) {
         entityManager = sessionFactory.createEntityManager();
